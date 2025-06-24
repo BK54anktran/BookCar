@@ -27,29 +27,69 @@ const CarBookingIntroAnt = () => {
 
   const qrPerLanguage = {
     vi: [
-      { title: 'Zalo', value: 'access/images/Zalo_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'Zalo',
+        value: 'access/images/Zalo_QR.jpg',
+        link: 'https://zalo.me/0345524179'
+      }
     ],
     ko: [
-      { title: 'KakaoTalk (카카오톡)', value: 'access/images/KakaoTalk_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'KakaoTalk (카카오톡)',
+        value: 'access/images/KakaoTalk_QR.jpg',
+        // KakaoTalk không hỗ trợ link cá nhân trực tiếp, dùng mã QR tĩnh là chủ yếu
+        link: '#'
+      }
     ],
     zh: [
-      { title: 'WeChat (微信)', value: 'access/images/WeChat_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'WeChat (微信)',
+        value: 'access/images/WeChat_QR.jpg',
+        // WeChat dùng mã QR tĩnh hoặc WeChat ID, không có URL cố định như Zalo
+        link: '#'
+      }
     ],
     ja: [
-      { title: 'LINE (ライン)', value: 'access/images/Line_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'LINE (ライン)',
+        value: 'access/images/Line_QR.jpg',
+        // LINE hỗ trợ link với LINE ID: https://line.me/ti/p/<id>
+        link: 'https://line.me/ti/p/~carbookingnt' // bạn có thể thay `carbookingnt` bằng ID thật
+      }
     ],
     ru: [
-      { title: 'WhatsApp (Ватсап)', value: 'access/images/WhatsApp_QR.jpg', link: 'https://zalo.me/0345524179' },
-      { title: 'Viber (Вайбер)', value: 'access/images/Viber_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'WhatsApp (Ватсап)',
+        value: 'access/images/WhatsApp_QR.jpg',
+        link: 'https://wa.me/84345524179' // 84 là mã quốc gia Việt Nam
+      },
+      {
+        title: 'Viber (Вайбер)',
+        value: 'access/images/Viber_QR.jpg',
+        link: 'viber://chat?number=+84345524179'
+      }
     ],
     en: [
-      { title: 'WhatsApp', value: 'access/images/WhatsApp_QR.jpg', link: 'https://zalo.me/0345524179' },
-      { title: 'Viber', value: 'access/images/Viber_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'WhatsApp',
+        value: 'access/images/WhatsApp_QR.jpg',
+        link: 'https://wa.me/84345524179'
+      },
+      {
+        title: 'Viber',
+        value: 'access/images/Viber_QR.jpg',
+        link: 'viber://chat?number=+84345524179'
+      }
     ],
     fr: [
-      { title: 'WhatsApp', value: 'access/images/WhatsApp_QR.jpg', link: 'https://zalo.me/0345524179' }
+      {
+        title: 'WhatsApp',
+        value: 'access/images/WhatsApp_QR.jpg',
+        link: 'https://wa.me/84345524179'
+      }
     ]
   };
+  // Ghi chú về các ứng dụng liên lạc phổ biến ở các quốc gia:
 
 
   // Việt Nam: Zalo
@@ -65,32 +105,32 @@ const CarBookingIntroAnt = () => {
     {
       key: '1',
       route: t('route_1'),
-      car4: '1.400.000 VND',
-      car7: '1.600.000 VND'
+      car4: '300.000 VND',
+      car7: '350.000 VND'
     },
     {
       key: '2',
       route: t('route_2'),
-      car4: '1.600.000 VND',
-      car7: '1.800.000 VND'
+      car4: '300.000 VND',
+      car7: '350.000 VND'
     },
     {
       key: '3',
       route: t('route_3'),
-      car4: '1.800.000 VND',
-      car7: '2.000.000 VND'
+      car4: '350.000 VND',
+      car7: '400.000 VND'
     },
     {
       key: '4',
       route: t('route_4'),
-      car4: '2.000.000 VND',
-      car7: '2.200.000 VND'
+      car4: '350.000 VND',
+      car7: '400.000 VND'
     },
     {
       key: '5',
       route: t('route_5'),
-      car4: '2.200.000 VND',
-      car7: '2.400.000 VND'
+      car4: '1.400.000 VND',
+      car7: '1.600.000 VND'
     }
   ];
 
@@ -121,7 +161,7 @@ const CarBookingIntroAnt = () => {
   return (
     <Layout style={{ minHeight: '100vh' }} className=''>
       <HeaderComponent />
-      <Content style={{ padding: '40px' }}>
+      <Content style={{ padding: '40px', marginTop: 60 }}>
         <Typography style={{ maxWidth: 800, margin: 'auto', textAlign: 'center' }}>
           <Paragraph>{t('description')}</Paragraph>
         </Typography>
@@ -142,9 +182,14 @@ const CarBookingIntroAnt = () => {
           {(qrPerLanguage[i18n.language] || []).map((qr, index) => (
             <Col key={index}>
               <Card title={qr.title} bordered={false} style={{ textAlign: 'center' }}>
-                <a href={qr.link} target="_blank" rel="noopener noreferrer">
-                  <Image src={qr.value} width={128} height={128} />
-                </a>
+                {qr.link && qr.link !== '#' ? (
+                  <a href={qr.link} target="_blank" rel="noopener noreferrer">
+                    <Image preview={false} src={qr.value} width={128} height={128} />
+                  </a>
+                ) : (
+                  <Image preview={false} src={qr.value} width={128} height={128} />
+                )}
+
               </Card>
             </Col>
           ))}

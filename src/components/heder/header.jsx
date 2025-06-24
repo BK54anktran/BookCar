@@ -23,7 +23,7 @@ const HeaderComponent = () => {
     };
 
     return (
-        <header style={{ background: '#2a2b30', height: "60px" }}>
+        <header style={{ background: '#2a2b30', height: "60px",position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
             <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: "space-evenly" }}>
                 <img
                     src="/access/images/Logo_white.png" // 👈 bạn có thể đổi thành ảnh riêng như "/images/logo.png"
@@ -38,7 +38,7 @@ const HeaderComponent = () => {
                 <Dropdown overlay={languageMenu} placement="bottomCenter" arrow>
                     <Button
                         style={{
-                            background: 'none',
+                            backgroundColor: "#3e4041",
                             color: 'white',
                             border: 'none',
                             outline: 'none',
