@@ -178,22 +178,50 @@ const CarBookingIntroAnt = () => {
         <Paragraph>{t('email')}</Paragraph>
 
         <Title level={4}>{t('contact_through_apps')}</Title>
-        <Row gutter={32} justify="center" style={{ marginTop: 40 }}>
+        <Row
+          gutter={[16, 24]}
+          justify="center"
+          style={{ marginTop: 40 }}
+        >
           {(qrPerLanguage[i18n.language] || []).map((qr, index) => (
-            <Col key={index}>
-              <Card title={qr.title} bordered={false} style={{ textAlign: 'center' }}>
+            <Col
+              key={index}
+              xs={24}
+              sm={12}
+              md={8}
+              lg={6}
+              xl={6}
+              style={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <Card
+                title={qr.title}
+                bordered={false}
+                style={{ textAlign: 'center', width: 200 }}
+              >
                 {qr.link && qr.link !== '#' ? (
                   <a href={qr.link} target="_blank" rel="noopener noreferrer">
-                    <Image preview={false} src={qr.value} width={128} height={128} />
+                    <Image
+                      preview={false}
+                      src={qr.value}
+                      width={128}
+                      height={128}
+                      style={{ borderRadius: 8 }}
+                    />
                   </a>
                 ) : (
-                  <Image preview={false} src={qr.value} width={128} height={128} />
+                  <Image
+                    preview={false}
+                    src={qr.value}
+                    width={128}
+                    height={128}
+                    style={{ borderRadius: 8 }}
+                  />
                 )}
-
               </Card>
             </Col>
           ))}
         </Row>
+
       </Content>
 
       <Footer style={{ textAlign: 'center' }}>
