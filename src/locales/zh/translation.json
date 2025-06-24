@@ -4,23 +4,23 @@
   "description": "只需点击几下，即可快速、安全、方便地预订您的车辆。",
   "contact_us": "添加我们为好友：",
   "zalo": "Zalo",
-  "wechat": "微信",
+  "wechat": "WeChat（微信）",
   "trip": "行程",
   "car4": "4座车",
   "car7": "7座车",
-  "route_1": "芽庄（中心/南向）↔ 金兰机场",
-  "route_2": "芽庄（中心/南向）↔ 金兰度假村（如莫文皮克、温德姆）",
-  "route_3": "芽庄（北向）↔ 金兰机场",
-  "route_4": "芽庄（北向）↔ 金兰度假村（如莫文皮克、温德姆）",
-  "route_5": "芽庄 ↔ 大叻",
+  "route_1": "Nha Trang（中心/南向）↔ Cam Ranh 机场",
+  "route_2": "Nha Trang（中心/南向）↔ Cam Ranh 度假区（Movenpick、Wyndham Garden等）",
+  "route_3": "Nha Trang（北向）↔ Cam Ranh 机场",
+  "route_4": "Nha Trang（北向）↔ Cam Ranh 度假区（Movenpick、Wyndham Garden等）",
+  "route_5": "Nha Trang ↔ Da Lat",
   "contact_info": "联系方式",
   "contact_through_apps": "通过应用程序联系",
-  "address": "地址： 7B Bach Dang Street, Nha Trang City, Vietnam",
+  "address": "地址：7B Bach Dang Street, Nha Trang City, Vietnam",
   "phone": "电话：0345 524 179",
   "email": "邮箱：carservice179@gmail.com",
   "bonus": "附加优惠",
   "bonus_items": [
     "免费清洁手机、扬声器和充电口",
-    "赠送一个Magsafe手机壳或一次KingKong钢化膜贴膜服务"
+    "赠送一个 Magsafe 手机壳或一次 KingKong 钢化膜贴膜服务"
   ]
 }
