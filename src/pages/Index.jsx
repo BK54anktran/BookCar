@@ -222,7 +222,7 @@ const CarBookingIntroAnt = () => {
         </Row>
 
         <Paragraph>{t('address')}</Paragraph>
-        <Paragraph>Link GoogMap: <a href='https://maps.app.goo.gl/jguBhYepaBicuNnJ7?g_st=com.google.maps.preview.copy' target='_blank' rel="noreferrer">https://maps.app.goo.gl/jguBhYepaBicuNnJ7?g_st=com.google.maps.preview.copy</a></Paragraph>
+        <Paragraph>Link Google Map: <a href='https://maps.app.goo.gl/jguBhYepaBicuNnJ7?g_st=com.google.maps.preview.copy' target='_blank' rel="noreferrer">https://maps.app.goo.gl/jguBhYepaBicuNnJ7?g_st=com.google.maps.preview.copy</a></Paragraph>
       </Content>
 
       <Footer style={{ textAlign: 'center' }}>
