@@ -54,7 +54,7 @@ const CarBookingIntroAnt = () => {
         title: 'LINE (ライン)',
         value: 'access/images/Line_QR.jpg',
         // LINE hỗ trợ link với LINE ID: https://line.me/ti/p/<id>
-        link: 'https://line.me/ti/p/~carbookingnt' // bạn có thể thay `carbookingnt` bằng ID thật
+        link: 'https://line.me/ti/p/~nhatrangcarservice' // bạn có thể thay `carbookingnt` bằng ID thật
       }
     ],
     ru: [
