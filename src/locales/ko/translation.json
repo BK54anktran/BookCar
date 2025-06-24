@@ -1,0 +1,26 @@
+{
+  "language_name": "한국어",
+  "title": "편리한 차량 예약 서비스",
+  "description": "몇 번의 클릭만으로 빠르고 안전하게 차량을 예약하세요.",
+  "contact_us": "우리와 친구가 되세요:",
+  "zalo": "잘로",
+  "wechat": "위챗",
+  "trip": "여정",
+  "car4": "4인승 차량",
+  "car7": "7인승 차량",
+  "route_1": "나트랑 (중심, 남쪽) ↔ 깜라인 공항",
+  "route_2": "나트랑 (중심, 남쪽) ↔ 깜라인 리조트 (모벤픽, 윈덤...)",
+  "route_3": "나트랑 (북쪽) ↔ 깜라인 공항",
+  "route_4": "나트랑 (북쪽) ↔ 깜라인 리조트 (모벤픽, 윈덤...)",
+  "route_5": "나트랑 ↔ 달랏",
+  "contact_info": "연락처 정보",
+  "contact_through_apps": "앱을 통한 연락",
+  "address": "주소: 7B Bach Dang Street, Nha Trang City, Vietnam",
+  "phone": "전화: 0345 524 179",
+  "email": "이메일: carservice179@gmail.com",
+  "bonus": "추가 혜택",
+  "bonus_items": [
+    "휴대폰, 스피커, 충전 포트 무료 세척",
+    "Magsafe 휴대폰 케이스 1개 또는 KingKong 강화유리 1회 제공"
+  ]
+}

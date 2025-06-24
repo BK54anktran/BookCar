@@ -1,0 +1,161 @@
+import { useTranslation } from 'react-i18next';
+import { Layout, Typography, Card, Row, Col, Image, Table } from 'antd';
+import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HeaderComponent from '../components/heder/header';
+import i18n from '../i18n'; // hoặc './i18n' nếu ở cùng cấp
+import { getPlansList } from '../api/plans_api';
+
+const { Title } = Typography;
+const { Content, Footer } = Layout;
+const { Paragraph } = Typography;
+
+const CarBookingIntroAnt = () => {
+  const [plans, setPlans] = useState([]);
+  const fetchPlans = async () => {
+    const plansData = await getPlansList();
+    setPlans(plansData);
+  };
+  // Lấy dữ liệu kế hoạch 
+  useEffect(() => {
+    fetchPlans();
+  }, []);
+
+  useEffect(() => {
+    console.log('Plans data fetched:', plans);
+  }, [plans]);
+
+  const qrPerLanguage = {
+    vi: [
+      { title: 'Zalo', value: 'access/images/Zalo_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ],
+    ko: [
+      { title: 'KakaoTalk (카카오톡)', value: 'access/images/KakaoTalk_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ],
+    zh: [
+      { title: 'WeChat (微信)', value: 'access/images/WeChat_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ],
+    ja: [
+      { title: 'LINE (ライン)', value: 'access/images/Line_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ],
+    ru: [
+      { title: 'WhatsApp (Ватсап)', value: 'access/images/WhatsApp_QR.jpg', link: 'https://zalo.me/0345524179' },
+      { title: 'Viber (Вайбер)', value: 'access/images/Viber_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ],
+    en: [
+      { title: 'WhatsApp', value: 'access/images/WhatsApp_QR.jpg', link: 'https://zalo.me/0345524179' },
+      { title: 'Viber', value: 'access/images/Viber_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ],
+    fr: [
+      { title: 'WhatsApp', value: 'access/images/WhatsApp_QR.jpg', link: 'https://zalo.me/0345524179' }
+    ]
+  };
+
+
+  // Việt Nam: Zalo
+  // Hàn Quốc: KakaoTalk
+  // Trung Quốc: WeChat
+  // Nhật Bản: Line
+  // Nga: WhatsApp, Viber
+  // Anh: WhatsApp, Viber
+  // Pháp: WhatsApp
+  const { t } = useTranslation();
+
+  const routeData = [
+    {
+      key: '1',
+      route: t('route_1'),
+      car4: '1.400.000 VND',
+      car7: '1.600.000 VND'
+    },
+    {
+      key: '2',
+      route: t('route_2'),
+      car4: '1.600.000 VND',
+      car7: '1.800.000 VND'
+    },
+    {
+      key: '3',
+      route: t('route_3'),
+      car4: '1.800.000 VND',
+      car7: '2.000.000 VND'
+    },
+    {
+      key: '4',
+      route: t('route_4'),
+      car4: '2.000.000 VND',
+      car7: '2.200.000 VND'
+    },
+    {
+      key: '5',
+      route: t('route_5'),
+      car4: '2.200.000 VND',
+      car7: '2.400.000 VND'
+    }
+  ];
+
+
+
+  const columns = [
+    {
+      title: t('trip'),
+      dataIndex: 'route',
+      key: 'route'
+    },
+    {
+      title: t('car4'),
+      dataIndex: 'car4',
+      key: 'car4'
+    },
+    {
+      title: t('car7'),
+      dataIndex: 'car7',
+      key: 'car7'
+    }
+  ];
+
+
+
+  const items = t('bonus_items', { returnObjects: true });
+
+  return (
+    <Layout style={{ minHeight: '100vh' }} className=''>
+      <HeaderComponent />
+      <Content style={{ padding: '40px' }}>
+        <Typography style={{ maxWidth: 800, margin: 'auto', textAlign: 'center' }}>
+          <Paragraph>{t('description')}</Paragraph>
+        </Typography>
+        <Table columns={columns} dataSource={routeData} pagination={false} bordered style={{ marginBottom: 40 }} />
+        <Title level={4} style={{ marginTop: 32 }}>{t('bonus')}</Title>
+        <ul>
+          {items.map((text, index) => (
+            <li key={index}>{text}</li>
+          ))}
+        </ul>
+        <Title level={4}>{t('contact_info')}</Title>
+        <Paragraph>{t('address')}</Paragraph>
+        <Paragraph>{t('phone')}</Paragraph>
+        <Paragraph>{t('email')}</Paragraph>
+
+        <Title level={4}>{t('contact_through_apps')}</Title>
+        <Row gutter={32} justify="center" style={{ marginTop: 40 }}>
+          {(qrPerLanguage[i18n.language] || []).map((qr, index) => (
+            <Col key={index}>
+              <Card title={qr.title} bordered={false} style={{ textAlign: 'center' }}>
+                <a href={qr.link} target="_blank" rel="noopener noreferrer">
+                  <Image src={qr.value} width={128} height={128} />
+                </a>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Content>
+
+      <Footer style={{ textAlign: 'center' }}>
+        © {new Date().getFullYear()} Car Booking Service
+      </Footer>
+    </Layout>
+  );
+};
+
+export default CarBookingIntroAnt;

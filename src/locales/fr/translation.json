@@ -1,0 +1,26 @@
+{
+  "language_name": "Français",
+  "title": "Service de réservation de voiture pratique",
+  "description": "Réservez une voiture rapidement et en toute sécurité en quelques clics.",
+  "contact_us": "Ajoutez-nous en ami :",
+  "zalo": "Zalo",
+  "wechat": "WeChat",
+  "trip": "Trajet",
+  "car4": "Voiture 4 places",
+  "car7": "Voiture 7 places",
+  "route_1": "Nha Trang (centre, sud) ↔ Aéroport de Cam Ranh",
+  "route_2": "Nha Trang (centre, sud) ↔ Resorts Cam Ranh (Movenpick, Wyndham...)",
+  "route_3": "Nha Trang (nord) ↔ Aéroport de Cam Ranh",
+  "route_4": "Nha Trang (nord) ↔ Resorts Cam Ranh (Movenpick, Wyndham...)",
+  "route_5": "Nha Trang ↔ Da Lat",
+  "contact_info": "Informations de contact",
+  "contact_through_apps": "Contacter via les applications",
+  "address": "Adresse : 7B Bach Dang Street, Nha Trang City, Vietnam",
+  "phone": "Téléphone : 0345 524 179",
+  "email": "E-mail : carservice179@gmail.com",
+  "bonus": "Offres supplémentaires",
+  "bonus_items": [
+    "Nettoyage gratuit du téléphone, haut-parleur et port de charge",
+    "Un étui Magsafe ou un film protecteur en verre trempé KingKong offert"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "language_name": "English",
+  "title": "Convenient Car Booking Service",
+  "description": "Book your ride quickly, safely, and conveniently with just a few clicks.",
+  "contact_us": "Connect with us:",
+  "zalo": "Zalo",
+  "wechat": "WeChat",
+  "trip": "Trip",
+  "car4": "4-seat car",
+  "car7": "7-seat car",
+  "route_1": "Nha Trang (Center, South) ↔ Cam Ranh Airport",
+  "route_2": "Nha Trang (Center, South) ↔ Cam Ranh Resorts (Movenpick, Wyndham...)",
+  "route_3": "Nha Trang (North) ↔ Cam Ranh Airport",
+  "route_4": "Nha Trang (North) ↔ Cam Ranh Resorts (Movenpick, Wyndham...)",
+  "route_5": "Nha Trang ↔ Da Lat",
+  "contact_info": "Contact Information",
+  "contact_through_apps": "Contact via Apps",
+  "address": "Address: 7B Bach Dang Street, Nha Trang City",
+  "phone": "Phone: 0345 524 179",
+  "email": "Email: carservice179@gmail.com",
+  "bonus": "Included Offers",
+  "bonus_items": [
+    "Free cleaning of phone, speaker, and charging port",
+    "Get a Magsafe phone case or a KingKong tempered glass screen protector"
+  ]
+}
