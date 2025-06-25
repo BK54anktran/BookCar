@@ -12,7 +12,8 @@ const HeaderComponent = () => {
                 { key: 'ja', label: '🇯🇵 日本語' },
                 { key: 'ru', label: '🇷🇺 Русский' },
                 { key: 'en', label: '🇬🇧 English' },
-                { key: 'fr', label: '🇫🇷 Français' }
+                { key: 'fr', label: '🇫🇷 Français' },
+                { key: 'uz', label: '🇺🇿 Oʻzbekcha' } // Uzbek
             ]}
         />
     );
@@ -25,7 +26,7 @@ const HeaderComponent = () => {
     return (
         <header style={{ background: '#2a2b30', height: "60px", position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
             <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: "space-evenly" }}>
-                <div style={{ display: 'flex',height: '100%',justifyContent: "space-evenly", alignItems: 'center' }}>
+                <div style={{ display: 'flex', height: '100%', justifyContent: "space-evenly", alignItems: 'center' }}>
                     <img
                         src="/access/images/Logo_white.png" // 👈 bạn có thể đổi thành ảnh riêng như "/images/logo.png"
                         alt="Logo"

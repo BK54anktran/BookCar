@@ -87,6 +87,23 @@ const CarBookingIntroAnt = () => {
         value: 'access/images/WhatsApp_QR.jpg',
         link: 'https://wa.me/84345524179'
       }
+    ],
+    uz: [
+      {
+        title: 'WhatsApp',
+        value: 'access/images/WhatsApp_QR.jpg',
+        link: 'https://wa.me/84345524179'
+      },
+      {
+        title: 'Viber',
+        value: 'access/images/Viber_QR.jpg',
+        link: 'viber://chat?number=+84345524179'
+      },
+      {
+        title: 'Zalo',
+        value: 'access/images/Zalo_QR.jpg',
+        link: 'https://zalo.me/0345524179'
+      }
     ]
   };
   // Ghi chú về các ứng dụng liên lạc phổ biến ở các quốc gia:

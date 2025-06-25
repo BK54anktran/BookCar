@@ -8,6 +8,7 @@ import translationZH from './locales/zh/translation.json';
 import translationRU from './locales/ru/translation.json';
 import translationFR from './locales/fr/translation.json';
 import translationJA from './locales/ja/translation.json';
+import translationUZ from './locales/uz/translation.json'; 
 
 const resources = {
   vi: { translation: translationVI },
@@ -17,6 +18,7 @@ const resources = {
   ru: { translation: translationRU },
   fr: { translation: translationFR },
   ja: { translation: translationJA },
+  uz: { translation: translationUZ },
 };
 
 i18n
