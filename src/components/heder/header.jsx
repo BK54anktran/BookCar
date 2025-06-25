@@ -23,15 +23,16 @@ const HeaderComponent = () => {
     };
 
     return (
-        <header style={{ background: '#2a2b30', height: "60px",position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
+        <header style={{ background: '#2a2b30', height: "60px", position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
             <div style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: "space-evenly" }}>
-                <img
-                    src="/access/images/Logo_white.png" // 👈 bạn có thể đổi thành ảnh riêng như "/images/logo.png"
-                    alt="Logo"
-                    style={{ height: "100%", marginRight: '20px' }}
-                />
-
-                <h6 style={{ color: 'white', margin: 0 }}>Nha Trang Car Booking Service</h6>
+                <div style={{ display: 'flex',height: '100%',justifyContent: "space-evenly", alignItems: 'center' }}>
+                    <img
+                        src="/access/images/Logo_white.png" // 👈 bạn có thể đổi thành ảnh riêng như "/images/logo.png"
+                        alt="Logo"
+                        style={{ height: "100%" }}
+                    />
+                    <h6 style={{ color: 'white', margin: 0 }}>Nha Trang <br /> Car Booking Service</h6>
+                </div>
                 <title level={4} style={{ color: 'white', margin: 0 }}>
                     Nha Trang Car Booking Service
                 </title>
@@ -44,7 +45,7 @@ const HeaderComponent = () => {
                             outline: 'none',
                             fontSize: '16px',
                             fontWeight: '500',
-                            width: '150px',
+                            // width: '150px',
                         }}
                     >
                         🌐 {t('language_name')}

@@ -165,6 +165,50 @@ const CarBookingIntroAnt = () => {
         <Typography style={{ maxWidth: 800, margin: 'auto', textAlign: 'center' }}>
           <Paragraph>{t('description')}</Paragraph>
         </Typography>
+        <Title level={4}>{t('contact_through_apps')}</Title>
+        <Row
+          gutter={[16, 24]}
+          justify="center"
+          style={{ marginTop: 40,marginBottom: 40 }}
+        >
+          {(qrPerLanguage[i18n.language] || []).map((qr, index) => (
+            <Col
+              key={index}
+              xs={24}
+              sm={12}
+              md={8}
+              lg={6}
+              xl={6}
+              style={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <Card
+                title={qr.title}
+                bordered={false}
+                style={{ textAlign: 'center', width: 200 }}
+              >
+                {qr.link && qr.link !== '#' ? (
+                  <a href={qr.link} target="_blank" rel="noopener noreferrer">
+                    <Image
+                      preview={false}
+                      src={qr.value}
+                      width={128}
+                      height={128}
+                      style={{ borderRadius: 8 }}
+                    />
+                  </a>
+                ) : (
+                  <Image
+                    preview={false}
+                    src={qr.value}
+                    width={128}
+                    height={128}
+                    style={{ borderRadius: 8 }}
+                  />
+                )}
+              </Card>
+            </Col>
+          ))}
+        </Row>
         <Table columns={columns} dataSource={routeData} pagination={false} bordered style={{ marginBottom: 40 }} />
         <Title level={4} style={{ marginTop: 32 }}>{t('bonus')}</Title>
         <ul>
@@ -176,7 +220,7 @@ const CarBookingIntroAnt = () => {
         <Paragraph>{t('phone')}</Paragraph>
         <Paragraph>{t('email')}</Paragraph>
 
-        <Title level={4}>{t('contact_through_apps')}</Title>
+        {/* <Title level={4}>{t('contact_through_apps')}</Title>
         <Row
           gutter={[16, 24]}
           justify="center"
@@ -219,7 +263,7 @@ const CarBookingIntroAnt = () => {
               </Card>
             </Col>
           ))}
-        </Row>
+        </Row> */}
 
         <Paragraph>{t('address')}</Paragraph>
         <Paragraph>Link Google Map: <a href='https://maps.app.goo.gl/jguBhYepaBicuNnJ7?g_st=com.google.maps.preview.copy' target='_blank' rel="noreferrer">https://maps.app.goo.gl/jguBhYepaBicuNnJ7?g_st=com.google.maps.preview.copy</a></Paragraph>
