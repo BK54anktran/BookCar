@@ -1,0 +1,26 @@
+{
+  "language_name": "Oʻzbekcha",
+  "title": "Qulay avtomobil bron qilish xizmati",
+  "description": "Faqat bir necha bosish orqali avtomobilni tez, xavfsiz va oson bron qiling.",
+  "contact_us": "Do‘st sifatida qo‘shiling:",
+  "zalo": "Zalo",
+  "wechat": "WeChat",
+  "trip": "Yo'nalish",
+  "car4": "4 o‘rinli avtomobil",
+  "car7": "7 o‘rinli avtomobil",
+  "route_1": "Nha Trang (markaz, janubiy yo‘nalish) ↔ Cam Ranh aeroporti",
+  "route_2": "Nha Trang (markaz, janubiy yo‘nalish) ↔ Cam Ranh kurorti (Movenpick, Wyndham Garden va boshqalar)",
+  "route_3": "Nha Trang (shimoliy yo‘nalish) ↔ Cam Ranh aeroporti",
+  "route_4": "Nha Trang (shimoliy yo‘nalish) ↔ Cam Ranh kurorti (Movenpick, Wyndham Garden va boshqalar)",
+  "route_5": "Nha Trang ↔ Da Lat",
+  "contact_info": "Kontakt ma’lumotlari",
+  "contact_through_apps": "Ilovalar orqali bog‘laning",
+  "address": "Manzil: 7B Bach Dang ko‘chasi, Nha Trang shahri, Vetnam",
+  "phone": "Telefon: 0345 524 179",
+  "email": "Email: carservice179@gmail.com",
+  "bonus": "Qo‘shimcha bonuslar",
+  "bonus_items": [
+    "Telefon, dinamik va zaryad portini bepul tozalash",
+    "Magsafe qopqog‘i yoki KingKong himoya oynasi bir marta bepul"
+  ]
+}
