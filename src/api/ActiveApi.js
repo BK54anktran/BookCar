@@ -1,0 +1,20 @@
+// src/api/cartApi.js
+import { supabase } from './supabaseClient'
+
+export const createActive = async () => {
+    const { data, error } = await supabase
+        .from('Active')
+        .insert([
+            {
+                created_at: new Date().toLocaleString('sv-SE'),
+                domain: window.location.hostname,
+                url: window.location.href,
+            }
+        ])
+        .select()
+    if (error) {
+        console.error('Error fetching cart:', error)
+        return null
+    }
+    return data
+}
