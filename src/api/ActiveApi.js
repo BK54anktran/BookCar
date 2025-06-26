@@ -4,9 +4,16 @@ import { supabase } from './supabaseClient'
 
 export const createActive = async () => {
     if (window.location.hostname !== 'nhatrangcar.com') {
-        console.log('Skipping createActive on localhost')
-        return null
+        console.log('Skipping createActive on localhost');
+        return null;
     }
+
+    // Đã tạo active trong phiên này?
+    if (sessionStorage.getItem('active_created') === 'true') {
+        console.log('Active already created this session');
+        return null;
+    }
+
     const { data, error } = await supabase
         .from('Active')
         .insert([
@@ -17,16 +24,21 @@ export const createActive = async () => {
                 url: window.location.href,
                 userAgent: navigator.userAgent,
                 language: navigator.language,
-                
-            }
+            },
         ])
-        .select()
+        .select();
+
     if (error) {
-        console.error('Error fetching cart:', error)
-        return null
+        console.error('Error creating Active record:', error);
+        return null;
     }
-    return data
-}
+
+    // Đánh dấu đã tạo để không tạo lại
+    sessionStorage.setItem('active_created', 'true');
+
+    return data;
+};
+
 
 export const createActiveConnectApp = async (appName) => {
     if (window.location.hostname !== 'nhatrangcar.com') {
