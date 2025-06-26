@@ -1,4 +1,5 @@
 // src/api/cartApi.js
+// import { use } from 'react'
 import { supabase } from './supabaseClient'
 
 export const createActive = async () => {
@@ -6,6 +7,7 @@ export const createActive = async () => {
         .from('Active')
         .insert([
             {
+                user_id: localStorage.getItem('visitor_id') || null,
                 created_at: new Date().toISOString(),
                 domain: window.location.hostname,
                 url: window.location.href,
@@ -27,6 +29,7 @@ export const createActiveConnectApp = async (appName) => {
         .from('Active_Connect_App')
         .insert([
             {
+                user_id: localStorage.getItem('visitor_id') || null,
                 domain: window.location.hostname,
                 url: window.location.href,
                 app_name: appName,
