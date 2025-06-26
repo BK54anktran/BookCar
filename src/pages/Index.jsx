@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Layout, Typography, Card, Row, Col, Image, Table } from 'antd';
+import { Layout, Typography, Card, Row, Col, Image, Table,Divider } from 'antd';
 // import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from '../components/heder/header';
@@ -13,7 +13,7 @@ const { Content, Footer } = Layout;
 const { Paragraph } = Typography;
 
 const CarBookingIntroAnt = () => {
-  
+
   const handleFingerprintReady = (id) => {
     createActive();
     // Gửi lên server nếu cần: axios.post('/track', { id })
@@ -214,7 +214,7 @@ const CarBookingIntroAnt = () => {
         <Row
           gutter={[16, 24]}
           justify="center"
-          style={{ marginTop: 40,marginBottom: 40 }}
+          style={{ marginTop: 40, marginBottom: 40 }}
         >
           {(qrPerLanguage[i18n.language] || []).map((qr, index) => (
             <Col
@@ -232,7 +232,7 @@ const CarBookingIntroAnt = () => {
                 style={{ textAlign: 'center', width: 200 }}
               >
                 {qr.link && qr.link !== '#' ? (
-                  <a href={qr.link} target="_blank" rel="noopener noreferrer" onClick={createActiveConnectApp_function(qr.app_name)}> 
+                  <a href={qr.link} target="_blank" rel="noopener noreferrer" onClick={createActiveConnectApp_function(qr.app_name)}>
                     <Image
                       preview={false}
                       src={qr.value}
@@ -316,6 +316,11 @@ const CarBookingIntroAnt = () => {
 
       <Footer style={{ textAlign: 'center' }}>
         © {new Date().getFullYear()} Car Booking Service
+        <Divider />
+        <Paragraph style={{ textAlign: 'center', fontWeight: 'bold',color: 'red' }}>
+          {t('thank_you')}
+        </Paragraph>
+
       </Footer>
     </Layout>
   );
