@@ -6,7 +6,7 @@ export const createActive = async () => {
         .from('Active')
         .insert([
             {
-                created_at: new Date().toLocaleString(),
+                created_at: new Date().toISOString(),
                 domain: window.location.hostname,
                 url: window.location.href,
                 userAgent: navigator.userAgent,
