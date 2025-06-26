@@ -21,3 +21,22 @@ export const createActive = async () => {
     }
     return data
 }
+
+export const createActiveConnectApp = async (appName) => {
+    const { error } = await supabase
+        .from('Active_Connect_App')
+        .insert([
+            {
+                domain: window.location.hostname,
+                url: window.location.href,
+                app_name: appName,
+                userAgent: navigator.userAgent,
+            }
+        ])
+        .select()
+    if (error) {
+        console.error('Error fetching cart:', error)
+        return null
+    }
+    return true
+}
