@@ -5,12 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from '../components/heder/header';
 import i18n from '../i18n'; // hoặc './i18n' nếu ở cùng cấp
 import { getPlansList } from '../api/plans_api';
+import { createActive } from '../api/ActiveApi';
 
 const { Title } = Typography;
 const { Content, Footer } = Layout;
 const { Paragraph } = Typography;
 
 const CarBookingIntroAnt = () => {
+  
   const [plans, setPlans] = useState([]);
   const fetchPlans = async () => {
     const plansData = await getPlansList();
@@ -19,6 +21,7 @@ const CarBookingIntroAnt = () => {
   // Lấy dữ liệu kế hoạch 
   useEffect(() => {
     fetchPlans();
+    createActive(); // Tạo bản ghi active mới khi component mount
   }, []);
 
   useEffect(() => {
