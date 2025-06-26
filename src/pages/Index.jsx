@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { Layout, Typography, Card, Row, Col, Image, Table } from 'antd';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from '../components/heder/header';
 import i18n from '../i18n'; // hoặc './i18n' nếu ở cùng cấp
-import { getPlansList } from '../api/plans_api';
+// import { getPlansList } from '../api/plans_api';
 import { createActive, createActiveConnectApp } from '../api/ActiveApi';
+import FingerprintId from '../components/FingerprintId';
 
 const { Title } = Typography;
 const { Content, Footer } = Layout;
@@ -13,21 +14,25 @@ const { Paragraph } = Typography;
 
 const CarBookingIntroAnt = () => {
   
-
-  const [plans, setPlans] = useState([]);
-  const fetchPlans = async () => {
-    const plansData = await getPlansList();
-    setPlans(plansData);
+  const handleFingerprintReady = (id) => {
+    createActive();
+    // Gửi lên server nếu cần: axios.post('/track', { id })
   };
-  // Lấy dữ liệu kế hoạch 
-  useEffect(() => {
-    fetchPlans();
-    createActive(); // Tạo bản ghi active mới khi component mount
-  }, []);
 
-  useEffect(() => {
-    console.log('Plans data fetched:', plans);
-  }, [plans]);
+  // const [plans, setPlans] = useState([]);
+  // const fetchPlans = async () => {
+  //   const plansData = await getPlansList();
+  //   setPlans(plansData);
+  // };
+  // Lấy dữ liệu kế hoạch 
+  // useEffect(() => {
+  //   fetchPlans();
+  //   createActive(); // Tạo bản ghi active mới khi component mount
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log('Plans data fetched:', plans);
+  // }, [plans]);
 
   const createActiveConnectApp_function = (appName) => {
     return async () => {
@@ -200,6 +205,7 @@ const CarBookingIntroAnt = () => {
   return (
     <Layout style={{ minHeight: '100vh' }} className=''>
       <HeaderComponent />
+      <FingerprintId onReady={handleFingerprintReady} />
       <Content style={{ padding: '40px', marginTop: 60 }}>
         <Typography style={{ maxWidth: 800, margin: 'auto', textAlign: 'center' }}>
           <Paragraph>{t('description')}</Paragraph>
