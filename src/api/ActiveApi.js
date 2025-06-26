@@ -9,6 +9,9 @@ export const createActive = async () => {
                 created_at: new Date().toLocaleString('sv-SE'),
                 domain: window.location.hostname,
                 url: window.location.href,
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                
             }
         ])
         .select()
