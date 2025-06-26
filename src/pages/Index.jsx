@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from '../components/heder/header';
 import i18n from '../i18n'; // hoặc './i18n' nếu ở cùng cấp
 import { getPlansList } from '../api/plans_api';
-import { createActive } from '../api/ActiveApi';
+import { createActive, createActiveConnectApp } from '../api/ActiveApi';
 
 const { Title } = Typography;
 const { Content, Footer } = Layout;
@@ -13,6 +13,7 @@ const { Paragraph } = Typography;
 
 const CarBookingIntroAnt = () => {
   
+
   const [plans, setPlans] = useState([]);
   const fetchPlans = async () => {
     const plansData = await getPlansList();
@@ -28,9 +29,16 @@ const CarBookingIntroAnt = () => {
     console.log('Plans data fetched:', plans);
   }, [plans]);
 
+  const createActiveConnectApp_function = (appName) => {
+    return async () => {
+      await createActiveConnectApp(appName);
+    };
+  };
+
   const qrPerLanguage = {
     vi: [
       {
+        app_name: 'Zalo',
         title: 'Zalo',
         value: 'access/images/Zalo_QR.jpg',
         link: 'https://zalo.me/0345524179'
@@ -38,6 +46,7 @@ const CarBookingIntroAnt = () => {
     ],
     ko: [
       {
+        app_name: 'KakaoTalk',
         title: 'KakaoTalk (카카오톡)',
         value: 'access/images/KakaoTalk_QR.jpg',
         // KakaoTalk không hỗ trợ link cá nhân trực tiếp, dùng mã QR tĩnh là chủ yếu
@@ -46,6 +55,7 @@ const CarBookingIntroAnt = () => {
     ],
     zh: [
       {
+        app_name: 'WeChat',
         title: 'WeChat (微信)',
         value: 'access/images/WeChat_QR.jpg',
         // WeChat dùng mã QR tĩnh hoặc WeChat ID, không có URL cố định như Zalo
@@ -54,6 +64,7 @@ const CarBookingIntroAnt = () => {
     ],
     ja: [
       {
+        app_name: 'LINE',
         title: 'LINE (ライン)',
         value: 'access/images/Line_QR.jpg',
         // LINE hỗ trợ link với LINE ID: https://line.me/ti/p/<id>
@@ -62,11 +73,13 @@ const CarBookingIntroAnt = () => {
     ],
     ru: [
       {
+        app_name: 'WhatsApp',
         title: 'WhatsApp (Ватсап)',
         value: 'access/images/WhatsApp_QR.jpg',
         link: 'https://wa.me/84345524179' // 84 là mã quốc gia Việt Nam
       },
       {
+        app_name: 'Viber',
         title: 'Viber (Вайбер)',
         value: 'access/images/Viber_QR.jpg',
         link: 'viber://chat?number=+84345524179'
@@ -74,11 +87,13 @@ const CarBookingIntroAnt = () => {
     ],
     en: [
       {
+        app_name: 'WhatsApp',
         title: 'WhatsApp',
         value: 'access/images/WhatsApp_QR.jpg',
         link: 'https://wa.me/84345524179'
       },
       {
+        app_name: 'Viber',
         title: 'Viber',
         value: 'access/images/Viber_QR.jpg',
         link: 'viber://chat?number=+84345524179'
@@ -86,6 +101,7 @@ const CarBookingIntroAnt = () => {
     ],
     fr: [
       {
+        app_name: 'WhatsApp',
         title: 'WhatsApp',
         value: 'access/images/WhatsApp_QR.jpg',
         link: 'https://wa.me/84345524179'
@@ -93,16 +109,19 @@ const CarBookingIntroAnt = () => {
     ],
     uz: [
       {
+        app_name: 'WhatsApp',
         title: 'WhatsApp',
         value: 'access/images/WhatsApp_QR.jpg',
         link: 'https://wa.me/84345524179'
       },
       {
+        app_name: 'Viber',
         title: 'Viber',
         value: 'access/images/Viber_QR.jpg',
         link: 'viber://chat?number=+84345524179'
       },
       {
+        app_name: 'Zalo',
         title: 'Zalo',
         value: 'access/images/Zalo_QR.jpg',
         link: 'https://zalo.me/0345524179'
@@ -207,7 +226,7 @@ const CarBookingIntroAnt = () => {
                 style={{ textAlign: 'center', width: 200 }}
               >
                 {qr.link && qr.link !== '#' ? (
-                  <a href={qr.link} target="_blank" rel="noopener noreferrer">
+                  <a href={qr.link} target="_blank" rel="noopener noreferrer" onClick={createActiveConnectApp_function(qr.app_name)}> 
                     <Image
                       preview={false}
                       src={qr.value}
