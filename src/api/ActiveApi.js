@@ -3,6 +3,10 @@
 import { supabase } from './supabaseClient'
 
 export const createActive = async () => {
+    if (window.location.hostname !== 'nhatrangcar.com') {
+        console.log('Skipping createActive on localhost')
+        return null
+    }
     const { data, error } = await supabase
         .from('Active')
         .insert([
@@ -25,6 +29,10 @@ export const createActive = async () => {
 }
 
 export const createActiveConnectApp = async (appName) => {
+    if (window.location.hostname !== 'nhatrangcar.com') {
+        console.log('Skipping createActiveConnectApp on localhost')
+        return null
+    }
     const { error } = await supabase
         .from('Active_Connect_App')
         .insert([
