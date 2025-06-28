@@ -187,7 +187,7 @@ const CarBookingIntroAnt = () => {
 
   const alter_message = async (message_s, app_name) => {
     await createActiveConnectApp_function(app_name)(); // Gọi hàm tạo ra
-    message.success(message_s);
+    message.success(message_s, 5);
   };
 
 
