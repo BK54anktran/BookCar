@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Layout, Typography, Card, Row, Col, Image, Table,Divider } from 'antd';
-// import { useEffect, useState } from 'react';
+import { Layout, Typography, Card, Row, Col, Image, Table, Divider } from 'antd';
+import { message } from "antd";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from '../components/heder/header';
-import i18n from '../i18n'; // hoặc './i18n' nếu ở cùng cấp
-// import { getPlansList } from '../api/plans_api';
+import i18n from '../i18n';
 import { createActive, createActiveConnectApp } from '../api/ActiveApi';
 import FingerprintId from '../components/FingerprintId';
 
@@ -16,23 +15,7 @@ const CarBookingIntroAnt = () => {
 
   const handleFingerprintReady = (id) => {
     createActive();
-    // Gửi lên server nếu cần: axios.post('/track', { id })
   };
-
-  // const [plans, setPlans] = useState([]);
-  // const fetchPlans = async () => {
-  //   const plansData = await getPlansList();
-  //   setPlans(plansData);
-  // };
-  // Lấy dữ liệu kế hoạch 
-  // useEffect(() => {
-  //   fetchPlans();
-  //   createActive(); // Tạo bản ghi active mới khi component mount
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log('Plans data fetched:', plans);
-  // }, [plans]);
 
   const createActiveConnectApp_function = (appName) => {
     return async () => {
@@ -202,12 +185,34 @@ const CarBookingIntroAnt = () => {
 
   const items = t('bonus_items', { returnObjects: true });
 
+  const alter_message = async (message_s, app_name) => {
+    await createActiveConnectApp_function(app_name)(); // Gọi hàm tạo ra
+    message.success(message_s);
+  };
+
+
+  const handleDownload = async (e, qr) => {
+
+    e.preventDefault();
+
+    await alter_message(t('download_qr'), qr.app_name);
+
+    // Sau đó tạo và trigger thẻ <a> để tải file
+    const link = document.createElement('a');
+    link.href = qr.value;
+    link.download = `qr-${qr.app_name || 'image'}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+
   return (
     <Layout style={{ minHeight: '100vh' }} className=''>
       <HeaderComponent />
       <FingerprintId onReady={handleFingerprintReady} />
       <Content style={{ padding: '40px', marginTop: 60 }}>
-        <Typography.Title level={4} style={{ margin: '0 0 20px 0', textAlign: 'center',color: '#b71c1c' }}>
+        <Typography.Title level={4} style={{ margin: '0 0 20px 0', textAlign: 'center', color: '#b71c1c' }}>
           “{t('description')}”
         </Typography.Title>
 
@@ -233,23 +238,30 @@ const CarBookingIntroAnt = () => {
                 style={{ textAlign: 'center', width: 200 }}
               >
                 {qr.link && qr.link !== '#' ? (
-                  <a href={qr.link} target="_blank" rel="noopener noreferrer" onClick={createActiveConnectApp_function(qr.app_name)}>
+                  <a
+                    href={qr.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={createActiveConnectApp_function(qr.app_name)}
+                  >
                     <Image
                       preview={false}
                       src={qr.value}
                       width={128}
                       height={128}
-                      style={{ borderRadius: 8 }}
+                      style={{ borderRadius: 8, cursor: 'pointer' }}
                     />
                   </a>
                 ) : (
-                  <Image
-                    preview={false}
-                    src={qr.value}
-                    width={128}
-                    height={128}
-                    style={{ borderRadius: 8 }}
-                  />
+                  <button onClick={(e) => handleDownload(e, qr)} style={{ all: 'unset', cursor: 'pointer' }}>
+                    <Image
+                      src={qr.value}
+                      preview={false}
+                      width={128}
+                      height={128}
+                      style={{ borderRadius: 8 }}
+                    />
+                  </button>
                 )}
               </Card>
             </Col>
@@ -318,7 +330,7 @@ const CarBookingIntroAnt = () => {
       <Footer style={{ textAlign: 'center' }}>
         © {new Date().getFullYear()} Car Booking Service
         <Divider />
-        <Paragraph style={{ textAlign: 'center', fontWeight: 'bold',color: 'red' }}>
+        <Paragraph style={{ textAlign: 'center', fontWeight: 'bold', color: 'red' }}>
           {t('thank_you')}
         </Paragraph>
 
