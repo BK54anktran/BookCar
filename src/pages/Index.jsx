@@ -207,9 +207,10 @@ const CarBookingIntroAnt = () => {
       <HeaderComponent />
       <FingerprintId onReady={handleFingerprintReady} />
       <Content style={{ padding: '40px', marginTop: 60 }}>
-        <Typography style={{ maxWidth: 800, margin: 'auto', textAlign: 'center' }}>
-          <Paragraph>{t('description')}</Paragraph>
-        </Typography>
+        <Typography.Title level={4} style={{ margin: '0 0 20px 0', textAlign: 'center',color: '#b71c1c' }}>
+          “{t('description')}”
+        </Typography.Title>
+
         <Title level={4}>{t('contact_through_apps')}</Title>
         <Row
           gutter={[16, 24]}
