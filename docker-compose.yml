@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  bookcar:
+    container_name: bookcar_container_docker
+    image: bk54anktran/bookcar:latest
+    ports:
+      - "3000:80"
+    restart: always
